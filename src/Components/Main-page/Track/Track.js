@@ -3,21 +3,20 @@ import './Track.css';
 import {Context} from '../../../util/Context';
 
 export default function Track(props){
-    const {newPlaylist, setNewPlaylist} = useContext(Context);
+    const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
 
     function addTrack(){
-        let tracks = newPlaylist;
-        if (newPlaylist.find(savedTrack => savedTrack.id === props.track.id)){
+        let tracks = newPlaylistTracks;
+        if (newPlaylistTracks.find(savedTrack => savedTrack.id === props.key)){
           return;
         }
         tracks.push(props.track);
-        setNewPlaylist(tracks);
+        setNewPlaylistTracks(tracks);
       }
     
     function removeTrack(){
-        let plTracks = newPlaylist;
-        let newPlTracks = plTracks.filter(plTrack => plTrack.id !== props.track.id)
-        setNewPlaylist(newPlTracks);
+        let newPlTracks = newPlaylistTracks.filter(plTrack => plTrack.id !== props.key)
+        setNewPlaylistTracks(newPlTracks);
     }
 
     return (
@@ -28,9 +27,9 @@ export default function Track(props){
             </div>
             {
             props.isRemoval?
-                <button className="Track-action" onClick={removeTrack}>-</button>
+                <button className="Track-action" key={props.key} onClick={removeTrack}>-</button>
             :
-                <button className="Track-action" onClick={addTrack}>+</button>
+                <button className="Track-action" key={props.key} onClick={addTrack}>+</button>
             }
         </div>
     );

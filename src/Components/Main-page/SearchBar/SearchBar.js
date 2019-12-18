@@ -3,7 +3,7 @@ import './SearchBar.css';
 import Spotify from '../../../util/Spotify';
 import { Context } from '../../../util/Context';
 
-export function SearchBar(){
+export default function SearchBar(){
     const [term, setTerm] = useState('');
     const {setSearchResult, setSearchOrEdit} = useContext(Context);
 

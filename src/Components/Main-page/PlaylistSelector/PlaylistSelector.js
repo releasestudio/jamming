@@ -5,7 +5,7 @@ import {Context} from '../../../util/Context';
 
 export default function PlaylistSelector (props) {
     const [playlistsList, setPlaylistsList] = useState([]);
-    const {setSearchOrEdit} = useContext(Context);
+    const {setSearchOrEdit, setSelectedPlaylistName, setSelectedPlaylistTracks } = useContext(Context);
 
     useEffect(() => {
         Spotify.getPlaylists().then(results =>{
@@ -16,17 +16,12 @@ export default function PlaylistSelector (props) {
     function changeSelectedPl(e){
         let newName = e.target.name;
         setSearchOrEdit('edit')
-
-
-        props.setSelectedPl(newName);
+        setSelectedPlaylistName(newName);
         let id = e.target.id;
-        // console.log(`id that is passed to changeSelectedPl is: ${id}`);
         Spotify.getPlaylistTracks(id).then(trackList =>{
-            // console.log(trackList);
-            props.changeTracksEdit(trackList)
+            setSelectedPlaylistTracks(trackList)
         })
     }
-
 
     return (
         <div className="PlaylistSelectorBox">

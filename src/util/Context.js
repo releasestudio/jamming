@@ -6,13 +6,22 @@ export const ContextProvider = ({ children }) => {
 
     const [searchResult, setSearchResult] = useState([]);
     const [searchOrEdit, setSearchOrEdit] = useState('search');
-    const [newPlaylist, setNewPlaylist] = useState([]);
+    const [newPlaylistName, setNewPlaylistName] = useState([]);
+    const [newPlaylistTracks, setNewPlaylistTracks] = useState([]);
+    const [editPlaylist, setEditPlaylist] = useState([]);
+    const [selectedPlaylistName, setSelectedPlaylistName] = useState("New Playlist");
+    const [selectedPlaylistTracks, setSelectedPlaylistTracks] = useState([]);
     
     return (
         <Context.Provider value={{ 
             searchResult, setSearchResult, 
-            newPlaylist, setNewPlaylist, 
+            newPlaylistName, setNewPlaylistName,
+            newPlaylistTracks, setNewPlaylistTracks,
             searchOrEdit, setSearchOrEdit,
+            editPlaylist, setEditPlaylist,
+            selectedPlaylistName, setSelectedPlaylistName,
+            selectedPlaylistTracks, setSelectedPlaylistTracks
+
         }} >
 
             {children}

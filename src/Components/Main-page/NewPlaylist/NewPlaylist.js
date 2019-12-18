@@ -1,31 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './Playlist.css';
 import TrackList from '../TrackList/TrackList';
 import Spotify from '../../../util/Spotify';
 import {Context} from '../../../util/Context';
 
-export default function NewPlaylist (props) {
-    const {newPlaylist, setNewPlaylist} = useContext(Context);
-    const [newPlaylistName, setNewPlaylistName] = useState('New Playlist')
-
-    function handleNameChange(e){
-        setNewPlaylistName(e.target.value);
-    }
+export default function NewPlaylist () {
+    const {newPlaylistName, setNewPlaylistName} = useContext(Context);
+    const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
 
     function saveNewPlaylist(){
-        const trackUris = newPlaylist.map(track => track.uri)
+        const trackUris = newPlaylistTracks.map(track => track.uri)
         Spotify.saveNewPlaylist(newPlaylistName, trackUris)
         setNewPlaylistName('New Playlist');
-        setNewPlaylist([]);
+        setNewPlaylistTracks([]);
       }
 
     return ( 
         <div className="Playlist">
             <div className="NameAndSave">
-                <input placeholder={newPlaylistName} onChange={handleNameChange}/>
+                <input placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
                 <button className="Playlist-save" onClick={saveNewPlaylist} >SAVE IN SPOTIFY</button>
             </div>
-            <TrackList tracks={newPlaylist} onRemove={props.onRemove} isRemoval="true" />
+            <TrackList tracks={newPlaylistTracks} isRemoval="true" />
         </div>
     );
 

@@ -4,17 +4,18 @@ import SearchResults from '../SearchResults/SearchResults';
 import EditPlaylist from '../EditPlaylist/EditPlaylist';
 import {Context} from '../../../util/Context';
 
-export function SearchOrPlaylists(props){
+export default function SearchOrPlaylists(props){
     
-    const {searchResult, searchOrEdit} = useContext(Context);
+    const {searchResult, searchOrEdit, editPlaylist, selectedPlaylistName} = useContext(Context);
+    
 
     return (
         <div className="SearchOrPlaylistBox">
             {
             searchOrEdit === 'search'?
-                <SearchResults searchTracks={searchResult} onAdd={props.onAdd} />
+                <SearchResults tracks={searchResult} />
             :
-                <EditPlaylist onAdd={props.onAdd} selectedPl={props.selectedPl} editTracks={props.editTracks} onNameChange={props.onNameChange} playlistName={props.playlistName} />
+                <EditPlaylist tracks={editPlaylist} selectedPlaylistName={selectedPlaylistName} />
             }      
         </div>
     )

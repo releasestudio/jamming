@@ -1,0 +1,19 @@
+.mainPage{
+    height: 100%;
+    min-height: 100vh;
+    padding: 0 5% 5% 5%;
+}
+
+.App-playlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: 1020px) {
+    .App-playlist {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
