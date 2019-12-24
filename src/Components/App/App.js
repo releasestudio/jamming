@@ -7,13 +7,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import {ContextProvider} from '../../util/Context';
 
 function App(){
 
   return(
     <div>
-      <ContextProvider>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <Router>
@@ -27,7 +25,6 @@ function App(){
             </Switch>
           </Router>
         </div>
-      </ContextProvider>
     </div>
     
   );

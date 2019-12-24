@@ -4,7 +4,7 @@ import TrackList from '../TrackList/TrackList';
 import Spotify from '../../../util/Spotify';
 import {Context} from '../../../util/Context';
 
-export default function NewPlaylist () {
+export default function NewPlaylist (props) {
     const {newPlaylistName, setNewPlaylistName} = useContext(Context);
     const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
 

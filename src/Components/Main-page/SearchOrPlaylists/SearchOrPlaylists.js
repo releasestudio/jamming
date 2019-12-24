@@ -6,16 +6,16 @@ import {Context} from '../../../util/Context';
 
 export default function SearchOrPlaylists(props){
     
-    const {searchResult, searchOrEdit, editPlaylist, selectedPlaylistName} = useContext(Context);
+    const { searchOrEdit } = useContext(Context);
     
 
     return (
         <div className="SearchOrPlaylistBox">
             {
             searchOrEdit === 'search'?
-                <SearchResults tracks={searchResult} />
+                <SearchResults />
             :
-                <EditPlaylist tracks={editPlaylist} selectedPlaylistName={selectedPlaylistName} />
+                <EditPlaylist />
             }      
         </div>
     )
