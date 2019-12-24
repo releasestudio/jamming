@@ -6,17 +6,25 @@ export default function Track(props){
     const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
 
     function addTrack(){
-        let tracks = newPlaylistTracks;
-        if (newPlaylistTracks.find(savedTrack => savedTrack.id === props.key)){
+        let newPlTracks = newPlaylistTracks;
+        if (newPlaylistTracks.find(savedTrack => savedTrack.id === props.track.id)){
           return;
         }
-        tracks.push(props.track);
-        setNewPlaylistTracks(tracks);
+        newPlTracks.push(props.track);
+        // console.log(newPlTracks)
+        setNewPlaylistTracks(newPlTracks);
       }
     
     function removeTrack(){
-        let newPlTracks = newPlaylistTracks.filter(plTrack => plTrack.id !== props.key)
+        let newPlTracks = newPlaylistTracks.filter(plTrack => plTrack.id !== props.track.id)
         setNewPlaylistTracks(newPlTracks);
+    }
+
+    function isRemoval(){
+        if (newPlaylistTracks.find(savedTrack => savedTrack.id === props.track.id)){
+            return true;
+        }
+        return false;
     }
 
     return (
@@ -26,10 +34,10 @@ export default function Track(props){
                 <p>{props.track.artist} | {props.track.album}</p>
             </div>
             {
-            props.isRemoval?
-                <button className="Track-action" key={props.key} onClick={removeTrack}>-</button>
+            isRemoval()?
+                <button className="Track-action" onClick={removeTrack}>-</button>
             :
-                <button className="Track-action" key={props.key} onClick={addTrack}>+</button>
+                <button className="Track-action" onClick={addTrack}>+</button>
             }
         </div>
     );

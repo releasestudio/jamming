@@ -3,7 +3,7 @@ import '../NewPlaylist/Playlist.css';
 import TrackList from '../TrackList/TrackList';
 import {Context} from '../../../util/Context';
 
-export default function EditPlaylist(props) {
+export default function EditPlaylist() {
     const {selectedPlaylistTracks} = useContext(Context);
     const {selectedPlaylistName} = useContext(Context);
     

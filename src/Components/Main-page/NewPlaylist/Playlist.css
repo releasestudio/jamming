@@ -1,6 +1,5 @@
 .Playlist {
     display: flex;
-    max-width: 600px;
     flex-direction: column;
     align-items: center;
     flex-grow: 0.7;
@@ -24,7 +23,7 @@
 
 .Playlist input {
   float: left;
-  width: 60%;
+  /* width: 60%; */
   border: 0;
   outline: 0;
   background: transparent;

@@ -13,7 +13,7 @@ export default function NewPlaylist () {
         Spotify.saveNewPlaylist(newPlaylistName, trackUris)
         setNewPlaylistName('New Playlist');
         setNewPlaylistTracks([]);
-      }
+    }
 
     return ( 
         <div className="Playlist">
@@ -21,7 +21,7 @@ export default function NewPlaylist () {
                 <input placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
                 <button className="Playlist-save" onClick={saveNewPlaylist} >SAVE IN SPOTIFY</button>
             </div>
-            <TrackList tracks={newPlaylistTracks} isRemoval="true" />
+            <TrackList tracks={newPlaylistTracks} />
         </div>
     );
 

@@ -13,18 +13,20 @@ const Spotify = {
         }
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+        console.log("expiresInMatch: " + expiresInMatch)
         if (accessTokenMatch && expiresInMatch) {
             window.localStorage.setItem('spotifyAccessToken', accessTokenMatch[1]);
-
             const expiresIn = Number(expiresInMatch[1]);
 
+            new Date().getTime()
+
             setTimeout(()=> window.localStorage.removeItem('spotifyAccessToken'), expiresIn * 1000);
-            return this.spotifyAccessToken;
+            return window.localStorage.getItem('spotifyAccessToken');
             
         }else {
             const accessUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientId 
             + '&response_type=token&scope=playlist-read-private&redirect_uri=' + redirectUri;
-            window.history = accessUrl;
+            window.location = accessUrl;
         }
     },
 

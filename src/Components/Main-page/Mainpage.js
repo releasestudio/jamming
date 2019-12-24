@@ -4,7 +4,8 @@ import PlaylistSelector from './PlaylistSelector/PlaylistSelector';
 import SearchOrPlaylists from './SearchOrPlaylists/SearchOrPlaylists';
 import NewPlaylist from './NewPlaylist/NewPlaylist';
 
-function Mainpage (props){
+
+function Mainpage (){
 
   return (
     <div className="mainPage">

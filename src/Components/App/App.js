@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Spotify from '../../util/Spotify';
 import Connect from '../Connect/Connect';
 import Mainpage from '../Main-page/Mainpage';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import {ContextProvider} from '../../util/Context';
 
