@@ -109,7 +109,7 @@ const Spotify = {
     },
 
     getPlaylistTracks(playlistId){
-        console.log("getPlaylistTracks()");
+        // console.log("getPlaylistTracks()");
         const thePlaylistId = playlistId;
         let userId;
         const header = {Authorization: `Bearer ${window.localStorage.getItem('spotifyAccessToken')}`};
@@ -133,6 +133,11 @@ const Spotify = {
                 })
         })
         
+    },
+
+    deletePlaylist(playlistId){
+        const header = {Authorization: `Bearer ${window.localStorage.getItem('spotifyAccessToken')}`};
+        return fetch("https://api.spotify.com/v1/playlists/" + playlistId +"/followers", {method: 'DELETE', headers: header});
     }
 }
 export default Spotify;

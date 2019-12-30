@@ -8,9 +8,13 @@ export default function PlaylistSelector (props) {
     const {setSearchOrEdit, setSelectedPlaylistName, setSelectedPlaylistTracks } = useContext(Context);
 
     useEffect(() => {
-        Spotify.getPlaylists().then(results =>{
-            setPlaylistsList(results)
-        })
+        try {
+            Spotify.getPlaylists().then(results =>{
+                setPlaylistsList(results)
+            });
+        } catch (e) {
+            window.location.assign("http://localhost:3000/");
+        }
     }, [])
 
     function changeSelectedPl(e){

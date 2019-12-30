@@ -6,12 +6,10 @@ export default function Track(props){
     const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
 
     function addTrack(){
-        let newPlTracks = newPlaylistTracks;
         if (newPlaylistTracks.find(savedTrack => savedTrack.id === props.track.id)){
           return;
         }
-        newPlTracks.push(props.track);
-        // console.log(newPlTracks)
+        let newPlTracks = newPlaylistTracks.concat(props.track);
         setNewPlaylistTracks(newPlTracks);
       }
     
@@ -28,7 +26,8 @@ export default function Track(props){
     }
 
     return (
-        <div className="Track">
+        props.dragOver?
+        <div className="Track" draggable="true" onDragOver={props.dragOver} onDragStart={props.dragStart}>
             <div className="Track-information">
                 <h3>{props.track.name}</h3>
                 <p>{props.track.artist} | {props.track.album}</p>
@@ -40,5 +39,18 @@ export default function Track(props){
                 <button className="Track-action" onClick={addTrack}>+</button>
             }
         </div>
+        :
+        <div className="Track">
+        <div className="Track-information">
+            <h3>{props.track.name}</h3>
+            <p>{props.track.artist} | {props.track.album}</p>
+        </div>
+        {
+        isRemoval()?
+            <button className="Track-action" onClick={removeTrack}>-</button>
+        :
+            <button className="Track-action" onClick={addTrack}>+</button>
+        }
+    </div>
     );
 }

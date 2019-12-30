@@ -8,7 +8,7 @@ export default function TrackList(props){
         <div className="TrackList">
             {
                 props.tracks.map(track =>{
-                    return <Track track={track} key ={track.id} />
+                    return <Track track={track} key ={track.id} dragOver={props.dragOver} dragStart={props.dragStart} />
                 })
             }
         </div>
