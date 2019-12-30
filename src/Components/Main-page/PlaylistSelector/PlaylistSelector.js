@@ -5,26 +5,25 @@ import {Context} from '../../../util/Context';
 
 export default function PlaylistSelector (props) {
     const [playlistsList, setPlaylistsList] = useState([]);
-    const {setSearchOrEdit, setSelectedPlaylistName, setSelectedPlaylistTracks } = useContext(Context);
+    const {searchOrEdit, setSearchOrEdit, setSelectedPlaylistName, setSelectedPlaylistTracks, setSelectedPlaylistId } = useContext(Context);
 
     useEffect(() => {
-        try {
             Spotify.getPlaylists().then(results =>{
                 setPlaylistsList(results)
+
             });
-        } catch (e) {
-            window.location.assign("http://localhost:3000/");
-        }
-    }, [])
+    }, [searchOrEdit])
 
     function changeSelectedPl(e){
         let newName = e.target.name;
         setSearchOrEdit('edit')
         setSelectedPlaylistName(newName);
         let id = e.target.id;
+        setSelectedPlaylistId(id)
         Spotify.getPlaylistTracks(id).then(trackList =>{
             setSelectedPlaylistTracks(trackList)
         })
+        
     }
 
     return (

@@ -5,20 +5,21 @@ import Spotify from '../../../util/Spotify';
 import {Context} from '../../../util/Context';
 
 export default function NewPlaylist (props) {
-    const {newPlaylistName, setNewPlaylistName} = useContext(Context);
-    const {newPlaylistTracks, setNewPlaylistTracks} = useContext(Context);
+    const {newPlaylistName, setNewPlaylistName, newPlaylistTracks, setNewPlaylistTracks, setSearchOrEdit} = useContext(Context);
 
     function saveNewPlaylist(){
         const trackUris = newPlaylistTracks.map(track => track.uri)
         Spotify.saveNewPlaylist(newPlaylistName, trackUris)
         setNewPlaylistName('New Playlist');
         setNewPlaylistTracks([]);
+        setSearchOrEdit('');
+        
     }
 
     return ( 
         <div className="Playlist">
             <div className="NameAndSave">
-                <input className="playlistName" placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
+                <input className="playlistName" value ={newPlaylistName} placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
                 <button className="Playlist-save" onClick={saveNewPlaylist} >Save in Spotify</button>
             </div>
             <TrackList tracks={newPlaylistTracks} />
