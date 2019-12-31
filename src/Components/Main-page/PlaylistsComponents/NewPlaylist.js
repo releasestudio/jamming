@@ -25,7 +25,7 @@ export default function NewPlaylist (props) {
         <div className="Playlist">
             <div className="plHeader">
                 <input className="playlistName" value ={newPlaylistName} placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
-                <button className="Playlist-save" onClick={saveNewPlaylist} >Save in Spotify</button>
+                <button className="playlistSave" onClick={saveNewPlaylist} >Save in Spotify</button>
             </div>
             <TrackList tracks={newPlaylistTracks} />
         </div>

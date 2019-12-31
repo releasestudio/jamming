@@ -5,6 +5,7 @@ import NewPlaylist from './PlaylistsComponents/NewPlaylist';
 import {Context} from '../../util/Context';
 import SearchResults from './PlaylistsComponents/SearchResults';
 import SelectedPlaylist from './PlaylistsComponents/SelectedPlaylist';
+import './Mainpage.css';
 
 function Mainpage (){
   const {searchOrEdit} = useContext(Context)
@@ -13,7 +14,7 @@ function Mainpage (){
     <div className="mainPage">
         <SearchBar />
         <PlaylistSelector />
-        <div className="App-playlist">
+        <div className="appPlaylist">
           {
           searchOrEdit === 'edit'?
           <SelectedPlaylist />

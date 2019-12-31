@@ -7,15 +7,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from "react-router-dom";
 
 function App(){
 
   return(
     <div>
-        <h1><span className="highlight">Spotif</span>API</h1>
+      <Router>
+        <Link to="/" style={{ textDecoration: 'none' }}><h1><span className="highlight">Spotif</span>API</h1></Link>
         <div className="App">
-          <Router>
             <Switch>
               <Route exact path="/" >
                 <Connect />
@@ -26,10 +27,9 @@ function App(){
                 </ContextProvider>
               </Route>
             </Switch>
-          </Router>
         </div>
+      </Router>
     </div>
-    
   );
 }
 

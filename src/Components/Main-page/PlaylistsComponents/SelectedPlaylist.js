@@ -22,7 +22,7 @@ export default function EditPlaylist(props) {
         <div className="Playlist">
             <div className="plHeader">
                 <h2 className="playlistName">{selectedPlaylistName}</h2>
-                <button className="Playlist-delete" onClick={deleteSpotifyPlaylist}>Delete Playlist</button>
+                <button className="playlistDelete" onClick={deleteSpotifyPlaylist}>Delete Playlist</button>
             </div>
             <TrackList tracks={selectedPlaylistTracks} />
         </div>
