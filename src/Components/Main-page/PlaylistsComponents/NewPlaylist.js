@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Playlist.css';
-import TrackList from '../TrackList/TrackList';
+import TrackList from './TrackList/TrackList';
 import Spotify from '../../../util/Spotify';
 import {Context} from '../../../util/Context';
 
@@ -12,13 +12,18 @@ export default function NewPlaylist (props) {
         Spotify.saveNewPlaylist(newPlaylistName, trackUris)
         setNewPlaylistName('New Playlist');
         setNewPlaylistTracks([]);
-        setSearchOrEdit('');
-        
+        let update = Date.now();
+        setSearchOrEdit(update);
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+          });
     }
 
     return ( 
         <div className="Playlist">
-            <div className="NameAndSave">
+            <div className="plHeader">
                 <input className="playlistName" value ={newPlaylistName} placeholder={newPlaylistName} onChange={(e)=>{setNewPlaylistName(e.target.value)}}/>
                 <button className="Playlist-save" onClick={saveNewPlaylist} >Save in Spotify</button>
             </div>

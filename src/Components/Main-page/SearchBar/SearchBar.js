@@ -8,20 +8,31 @@ export default function SearchBar(){
     const {setSearchResult, setSearchOrEdit} = useContext(Context);
 
     function search(){
+        if(term){
         Spotify.search(term).then(results=>{
             setSearchResult(results);
             setSearchOrEdit('search');
         });
+        }
     };
 
     function handleTermChange(e){
         setTerm(e.target.value)
     };
 
+    function handleEnter(e){
+        if (e.charCode === 13) {
+            search();
+            e.preventDefault();
+        }
+      }
+
     return (
         <div className="SearchBar">
-            <input placeholder="Enter A Song, Album, or Artist" onChange={handleTermChange} />
-            <button className="SearchButton" onClick={search}>SEARCH</button>
+            <div className="searchBox">
+                <img className="magnifyingGlass" src={require('./magnifyingglass.png')} alt="search" onClick={search} />
+                <input placeholder="Search for a Song, Album, or Artist" onChange={handleTermChange} onKeyPress={handleEnter} />
+            </div>
         </div>
     )
 }

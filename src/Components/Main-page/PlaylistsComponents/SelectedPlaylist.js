@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import '../NewPlaylist/Playlist.css';
-import TrackList from '../TrackList/TrackList';
+import './Playlist.css';
+import TrackList from './TrackList/TrackList';
 import {Context} from '../../../util/Context';
-import '../NewPlaylist/Playlist.css';
+import './Playlist.css';
 import Spotify from '../../../util/Spotify';
 
 export default function EditPlaylist(props) {
@@ -11,12 +11,16 @@ export default function EditPlaylist(props) {
     function deleteSpotifyPlaylist(){
         Spotify.deletePlaylist(selectedPlaylistId);
         setSearchOrEdit('search');
-        
+        window.scroll({
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth'
+          });
     }
     
     return ( 
         <div className="Playlist">
-            <div className="NameAndSave">
+            <div className="plHeader">
                 <h2 className="playlistName">{selectedPlaylistName}</h2>
                 <button className="Playlist-delete" onClick={deleteSpotifyPlaylist}>Delete Playlist</button>
             </div>

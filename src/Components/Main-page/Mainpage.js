@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import PlaylistSelector from './PlaylistSelector/PlaylistSelector';
-import SearchOrPlaylists from './SearchOrPlaylists/SearchOrPlaylists';
-import NewPlaylist from './NewPlaylist/NewPlaylist';
-import {ContextProvider} from '../../util/Context';
-
+import NewPlaylist from './PlaylistsComponents/NewPlaylist';
+import {Context} from '../../util/Context';
+import SearchResults from './PlaylistsComponents/SearchResults';
+import SelectedPlaylist from './PlaylistsComponents/SelectedPlaylist';
 
 function Mainpage (){
+  const {searchOrEdit} = useContext(Context)
 
   return (
     <div className="mainPage">
-      <ContextProvider>
         <SearchBar />
         <PlaylistSelector />
         <div className="App-playlist">
-        
-          <SearchOrPlaylists />
-
+          {
+          searchOrEdit === 'edit'?
+          <SelectedPlaylist />
+          :
+          <SearchResults />
+          }     
           <NewPlaylist />
-        
         </div>
-      </ContextProvider>
     </div>
   )
 }

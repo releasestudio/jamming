@@ -1,40 +1,49 @@
 .SearchBar {
+    justify-self: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    padding-top: 2.94rem;
-    margin-bottom: 2.33rem;
-  }
+    margin: 30px 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+.searchBox{
+  display: flex;
+  height: 25px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: fit-content;
+  padding: .88rem 0.5rem;
+  border-radius: 6rem;
+  background-color: #ffffff;
+  font-size: .83rem;
+  font-weight: 500;
+}
+
+.magnifyingGlass{
+  margin: 0 8px 0 0.5vmax;
+  height: 25px;
+  cursor: pointer;
+}
   
-  .SearchBar input {
-    width: 287px;
-    padding: .88rem 0;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    margin-bottom: 2.22rem;
-    color: #010c3f;
-    text-align: center;
-    font-size: 1rem;
-  }
-  
-  .SearchBar input:focus {
-    outline: none;
-  }
-  
-  .SearchButton {
-    cursor: pointer;
-    width: 8.11rem;
-    padding: .77rem 0;
-    border-radius: 54px;
-    background-color: #010c3f;
-    text-align: center;
-    font-size: .833rem;
-    transition: background-color .25s;
-    border: 0px;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  .SearchButton:hover {
-    background-color: rgba(108, 65, 233, .7);
-  }
+.SearchBar input {
+  border-radius: 6rem;
+  min-width: 16rem;
+  height: 100%;
+  border: none;
+  color: #010c3f;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.SearchBar input:focus {
+  outline: none;
+}
+
+.SearchButton:hover {
+  background-color: rgb(26, 153, 70);
+}

@@ -34,8 +34,9 @@ const Spotify = {
                 if(!response.ok){
                     window.location.assign("http://localhost:3000/");
                 }
-                return response.json();
-            }).then(jsonResponse =>{
+                return response.json()
+            }
+            ).then(jsonResponse =>{
             if (!jsonResponse.tracks){
                 return [];
             }

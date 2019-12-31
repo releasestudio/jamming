@@ -1,4 +1,5 @@
 import React from 'react';
+import {ContextProvider} from '../../util/Context';
 import './App.css';
 import Connect from '../Connect/Connect';
 import Mainpage from '../Main-page/Mainpage';
@@ -12,7 +13,7 @@ function App(){
 
   return(
     <div>
-        <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <h1><span className="highlight">Spotif</span>API</h1>
         <div className="App">
           <Router>
             <Switch>
@@ -20,7 +21,9 @@ function App(){
                 <Connect />
               </Route>
               <Route path="/mainpage">
-                <Mainpage />
+                <ContextProvider>
+                  <Mainpage />
+                </ContextProvider>
               </Route>
             </Switch>
           </Router>

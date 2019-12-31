@@ -1,29 +1,29 @@
 .PlaylistSelectorBox {
-    background-color: rgba(0, 0, 0, 0.349);
-    border-radius: 60px;
-    padding: 20px;
-    display: wrap;
+    background-color: rgb(36, 36, 36);
+    border-radius: 40px;
+    display: flex;
+    flex-flow: wrap;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 2.33rem;
+    align-content: center;
+    margin-bottom: 2vmax;
 }
 
 .PlaylistButton {
+    margin: 10px;
     cursor: pointer;
     width: 8.11rem;
-    height: 3.7rem;
+    height: 3rem;
     border-radius: 54px;
-    background-color: #010c3f;
+    background-color: #313131;
     text-align: center;
-    font-size: .833rem;
-    transition: background-color .25s;
+    font-size: .83rem;
+    transition: all .25s;
     border: 0px;
     color: #fff;
     font-weight: 500;
-    margin: 5px 10px;
 }
 
 .PlaylistButton:hover {
-    background-color: #010c3f7c;
+    background-color: rgb(34, 34, 34);
 
 }
