@@ -21,13 +21,29 @@ export default function Connect (props) {
     }, [])
 
     function spotifyConnect(){
-            window.localStorage.removeItem('spotifyAccessToken');
-            Spotify.getAccessToken();
+        window.localStorage.removeItem('spotifyAccessToken');
+        Spotify.getAccessToken();
+    }
+
+    function demoConnect(){
+        window.localStorage.setItem('spotifyAccessToken', 'demo');
+        window.location.assign("http://localhost:3000/mainpage");
     }
 
     return (
         <div className="ConnectBox">
-            <button className="ConnectButton" onClick={spotifyConnect}>Connect to spotify</button> 
+            <h3>
+                Create a new Spotify playlist by searching for new songs or re-using tracks 
+                from your existing playlsits.
+            </h3>
+            {/* <img className="spotifApiScreenshot" src={require('./SpotAPI-Screenshot.png')} alt="spotifApiScreenshot" /> */}
+            <video className="spotifApiScreenshot" type="video/mp4" src={require('./SpotifAPI-Demo.mp4')} autoPlay loop muted />
+            <div className="buttons">
+                <button className="ConnectButton" onClick={spotifyConnect}>Connect to spotify</button>
+            </div>
+            <p>SpotifAPI is a React JS app created by Clement Barbu.
+                The main purpose of this app is to demonstrated a good understanding of ReactJS and API interaction.
+            </p>
         </div>
     )
 }

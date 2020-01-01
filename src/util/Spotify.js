@@ -3,7 +3,6 @@ const clientId = '4ed839b4fcad4632a8ff9ce8e3ebdbc5';
 const redirectUri = 'http://localhost:3000/';
 // const redirectUri = 'https://jammming-f82b7.firebaseapp.com';
 
-
 const Spotify = {
 
     getAccessToken() {
@@ -142,11 +141,12 @@ const Spotify = {
     deletePlaylist(playlistId){
         const header = {Authorization: `Bearer ${window.localStorage.getItem('spotifyAccessToken')}`};
         return fetch("https://api.spotify.com/v1/playlists/" + playlistId +"/followers", {method: 'DELETE', headers: header}
-        ).then(response => {
+        ).then(response => {
             if(!response.ok){
                 window.location.assign("http://localhost:3000/");
             }
         });
     }
 }
+
 export default Spotify;

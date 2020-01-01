@@ -16,6 +16,7 @@
   height: 2.8rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(256, 256, 256, 0.8);
 
@@ -52,6 +53,7 @@
   transition: background-color .25s;
   color: #fff;
   font-weight: 500;
+  outline: none;
 }
 .plHeader button:hover {
   background-color: rgb(24, 145, 66);

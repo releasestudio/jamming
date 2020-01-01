@@ -2,17 +2,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20vh;
-    margin-bottom: 6.33rem;
+    padding-top: 2vh;
+    max-height: 100vh;
+
+}
+
+.ConnectBox h3 {
+    margin-top: 4vh;
+    text-align: center;
+}
+
+.spotifApiScreenshot {
+    width: 700px;
+    margin: 4vh;
+    box-shadow: 0 0 10px 4px rgba(37, 37, 37, 0.589);
+}
+
+.ConnectBox .buttons {
+    width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .ConnectButton {
-    background-color: rgba(0, 0, 0, 0.363);
-    font-family: 'Poppins', sans-serif;
-    font-size: 5em;
-    padding: 0.2em 0.2em;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.363);
-    border: 1px solid rgba(255, 255, 255, 0);
-    border-radius: 30px;
-    color: rgb(255, 255, 255);
+    margin: 10px;
+    cursor: pointer;
+    width: fit-content;
+    padding: 0 15px;
+    height: 2.3rem;
+    border-radius: 54px;
+    background-color: #1DB953;
+    text-align: center;
+    font-size: .83rem;
+    transition: all .25s;
+    border: 0px;
+    color: #fff;
+    font-weight: 500;
+    outline: none;
+}
+
+.ConnectButton:hover {
+    background-color: rgb(24, 145, 66);
+
+}
+
+.ConnectBox p {
+    margin: 4vh 0;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .spotifApiScreenshot {
+        width: 90vw;
+    }
+    .ConnectButton {
+        margin: 10px;
+        width: 200px;
+        padding: 0 15px;
+        height: 2.3rem;
+        font-size: .83rem;
+    }
+    .ConnectBox .buttons {
+        width: 90vw;
+        display: flex;
+        justify-content: space-evenly;
+    }
 }
