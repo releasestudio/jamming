@@ -1,6 +1,6 @@
 const Spotify = {
-    // redirectUri : 'https://spotifapi.web.app/',
-    redirectUri : 'http://localhost:3000/',
+    redirectUri : 'https://spotifapi.web.app/',
+    // redirectUri : 'http://localhost:3000/',
     clientId : '4ed839b4fcad4632a8ff9ce8e3ebdbc5',
 
     getAccessToken() {
