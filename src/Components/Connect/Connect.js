@@ -28,7 +28,7 @@ export default function Connect (props) {
     return (
         <div className="ConnectBox">
             <h3>
-                Create a new Spotify playlist by searching for new songs or re-using tracks 
+                Create new Spotify playlists by searching for new songs or selecting tracks 
                 from your existing playlsits.
             </h3>
             {/* <img className="spotifApiScreenshot" src={require('./SpotAPI-Screenshot.png')} alt="spotifApiScreenshot" /> */}
