@@ -9,10 +9,7 @@ export default function EditPlaylist(props) {
     const {selectedPlaylistName, selectedPlaylistTracks, selectedPlaylistId, setSearchOrEdit, searchOrEdit} = useContext(Context);
 
     function deleteSpotifyPlaylist(){
-        Spotify.deletePlaylist(selectedPlaylistId);
-        setTimeout(() => {
-            setSearchOrEdit(searchOrEdit + "1"); 
-        }, 200);
+        Spotify.deletePlaylist(selectedPlaylistId).then(()=>setSearchOrEdit(searchOrEdit + "1"));
         window.scroll({
             top: 0, 
             left: 0, 

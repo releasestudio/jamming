@@ -1,3 +1,7 @@
+// redirect Uri needs to be changed both in here and in on the 
+// Spotify API web interface for the OAuth redirection to work.
+
+
 const Spotify = {
     redirectUri : 'https://spotifapi.web.app/',
     // redirectUri : 'http://localhost:3000/',

@@ -9,12 +9,9 @@ export default function NewPlaylist (props) {
 
     function saveNewPlaylist(){
         const trackUris = newPlaylistTracks.map(track => track.uri)
-        Spotify.saveNewPlaylist(newPlaylistName, trackUris)
-        setNewPlaylistName('New Playlist');
+        Spotify.saveNewPlaylist(newPlaylistName, trackUris).then(()=> setSearchOrEdit(searchOrEdit + "1"));
+        setNewPlaylistName('New Playlist')
         setNewPlaylistTracks([]);
-        setTimeout(() => {
-            setSearchOrEdit(searchOrEdit + "1"); 
-        }, 200);
         window.scroll({
             top: 0, 
             left: 0, 
