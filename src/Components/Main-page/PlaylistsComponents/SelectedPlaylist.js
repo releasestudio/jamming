@@ -6,17 +6,18 @@ import './Playlist.css';
 import Spotify from '../../../util/Spotify';
 
 export default function EditPlaylist(props) {
-    const {selectedPlaylistName, selectedPlaylistTracks, selectedPlaylistId, setSearchOrEdit} = useContext(Context);
+    const {selectedPlaylistName, selectedPlaylistTracks, selectedPlaylistId, setSearchOrEdit, searchOrEdit} = useContext(Context);
 
     function deleteSpotifyPlaylist(){
         Spotify.deletePlaylist(selectedPlaylistId);
-        
+        setTimeout(() => {
+            setSearchOrEdit(searchOrEdit + "1"); 
+        }, 200);
         window.scroll({
             top: 0, 
             left: 0, 
             behavior: 'smooth'
           });
-        setSearchOrEdit('search');
     }
     
     return ( 

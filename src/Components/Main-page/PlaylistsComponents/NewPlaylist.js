@@ -5,15 +5,16 @@ import Spotify from '../../../util/Spotify';
 import {Context} from '../../../util/Context';
 
 export default function NewPlaylist (props) {
-    const {newPlaylistName, setNewPlaylistName, newPlaylistTracks, setNewPlaylistTracks, setSearchOrEdit} = useContext(Context);
+    const {newPlaylistName, setNewPlaylistName, newPlaylistTracks, setNewPlaylistTracks, setSearchOrEdit, searchOrEdit} = useContext(Context);
 
     function saveNewPlaylist(){
         const trackUris = newPlaylistTracks.map(track => track.uri)
         Spotify.saveNewPlaylist(newPlaylistName, trackUris)
         setNewPlaylistName('New Playlist');
         setNewPlaylistTracks([]);
-        let update = Date.now();
-        setSearchOrEdit(update);
+        setTimeout(() => {
+            setSearchOrEdit(searchOrEdit + "1"); 
+        }, 200);
         window.scroll({
             top: 0, 
             left: 0, 

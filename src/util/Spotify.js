@@ -1,9 +1,7 @@
-const clientId = '4ed839b4fcad4632a8ff9ce8e3ebdbc5';
-// const redirectUri = 'https://clemjammspot.surge.sh';
-// const redirectUri = 'http://localhost:3000';
-const redirectUri = 'https://spotifapi.web.app';
-
 const Spotify = {
+    // redirectUri : 'https://spotifapi.web.app/',
+    redirectUri : 'http://localhost:3000/',
+    clientId : '4ed839b4fcad4632a8ff9ce8e3ebdbc5',
 
     getAccessToken() {
         if(window.localStorage.getItem('spotifyAccessToken')) {
@@ -18,8 +16,8 @@ const Spotify = {
             return window.localStorage.getItem('spotifyAccessToken');
             
         }else {
-            const accessUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientId 
-            + '&response_type=token&scope=playlist-read-private&redirect_uri=' + redirectUri;
+            const accessUrl = 'https://accounts.spotify.com/authorize?client_id=' + this.clientId 
+            + '&response_type=token&scope=playlist-read-private&redirect_uri=' + this.redirectUri;
             window.location = accessUrl;
         }
     },
@@ -31,7 +29,7 @@ const Spotify = {
             }
             }).then(response => {
                 if(!response.ok){
-                    window.location.assign(redirectUri);
+                    window.location.assign(this.redirectUri);
                 }
                 return response.json()
             }
@@ -57,7 +55,7 @@ const Spotify = {
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign(redirectUri);
+                window.location.assign(this.redirectUri);
             }
             return response.json()
         }
@@ -90,7 +88,7 @@ const Spotify = {
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign(redirectUri);
+                window.location.assign(this.redirectUri);
             }
             return response.json()
         }
@@ -117,7 +115,7 @@ const Spotify = {
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign(redirectUri);
+                window.location.assign(this.redirectUri);
             }
             return response.json()
         }
@@ -143,7 +141,7 @@ const Spotify = {
         return fetch("https://api.spotify.com/v1/playlists/" + playlistId +"/followers", {method: 'DELETE', headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign(redirectUri);
+                window.location.assign(this.redirectUri);
             }
         });
     }

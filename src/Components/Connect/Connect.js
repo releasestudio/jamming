@@ -15,7 +15,7 @@ export default function Connect (props) {
             new Date().getTime()
 
             setTimeout(()=> window.localStorage.removeItem('spotifyAccessToken'), expiresIn * 1000);
-            window.location.assign("https://spotifapi.web.app/mainpage");
+            window.location.assign(Spotify.redirectUri+"mainpage");
 
         };
     }, [])
