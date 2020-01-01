@@ -25,11 +25,6 @@ export default function Connect (props) {
         Spotify.getAccessToken();
     }
 
-    function demoConnect(){
-        window.localStorage.setItem('spotifyAccessToken', 'demo');
-        window.location.assign("http://localhost:3000/mainpage");
-    }
-
     return (
         <div className="ConnectBox">
             <h3>

@@ -1,7 +1,7 @@
 const clientId = '4ed839b4fcad4632a8ff9ce8e3ebdbc5';
 // const redirectUri = 'https://clemjammspot.surge.sh';
-const redirectUri = 'http://localhost:3000/';
-// const redirectUri = 'https://jammming-f82b7.firebaseapp.com';
+// const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'https://jammming-f82b7.firebaseapp.com';
 
 const Spotify = {
 
