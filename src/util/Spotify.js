@@ -1,7 +1,7 @@
 const clientId = '4ed839b4fcad4632a8ff9ce8e3ebdbc5';
 // const redirectUri = 'https://clemjammspot.surge.sh';
 // const redirectUri = 'http://localhost:3000/';
-const redirectUri = 'https://spotifapi.web.app';
+const redirectUri = 'https://spotifapi.web.app/';
 
 const Spotify = {
 
@@ -31,7 +31,7 @@ const Spotify = {
             }
             }).then(response => {
                 if(!response.ok){
-                    window.location.assign("http://localhost:3000/");
+                    window.location.assign(redirectUri);
                 }
                 return response.json()
             }
@@ -57,7 +57,7 @@ const Spotify = {
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign("http://localhost:3000/");
+                window.location.assign(redirectUri);
             }
             return response.json()
         }
@@ -89,8 +89,7 @@ const Spotify = {
         let userId; 
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
-            if(!response.ok){
-                window.location.assign("http://localhost:3000/");
+            window.location.assign(redirectUri);
             }
             return response.json()
         }
@@ -117,7 +116,7 @@ const Spotify = {
         return fetch('https://api.spotify.com/v1/me', {headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign("http://localhost:3000/");
+                window.location.assign(redirectUri);
             }
             return response.json()
         }
@@ -143,7 +142,7 @@ const Spotify = {
         return fetch("https://api.spotify.com/v1/playlists/" + playlistId +"/followers", {method: 'DELETE', headers: header}
         ).then(response => {
             if(!response.ok){
-                window.location.assign("http://localhost:3000/");
+                window.location.assign(redirectUri);
             }
         });
     }
